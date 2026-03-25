@@ -7,8 +7,11 @@ public class PlayerControl : MonoBehaviour
     private float animSpeed = 1f;
     private const float MAX_ANIM_SPEED = 5f;
     private const float MIN_ANIM_SPEED = 0f;
-    private const float SCORE_STEP = 0.1f;
+    public float scoreStep = 15f;
+    public float animSpeedStep = 1f;
     private float score = 0f;
+
+    public int failCount = 0;
 
 
     private void Start()
@@ -32,11 +35,22 @@ public class PlayerControl : MonoBehaviour
         bool isCorrectDir = (isPlayerRotatedCW && rotateDirDisplay.currentDir == RotateDirDisplay.RotationDir.ClockWise) ||
             (isPlayerRotatedCCW && rotateDirDisplay.currentDir == RotateDirDisplay.RotationDir.CounterClockWise);
 
-        animSpeed += isCorrectDir ? SCORE_STEP : -SCORE_STEP;
-        animSpeed = Mathf.Clamp(animSpeed, MIN_ANIM_SPEED, MAX_ANIM_SPEED);
+        if (isCorrectDir)
+        {
+            animSpeed += animSpeedStep;
+            score += scoreStep;
+        }
+        else
+        {
+            animSpeed -= animSpeedStep;
+            score -= scoreStep;
+            failCount += 1;
+        }
 
-        score += isCorrectDir ? 15f : 0f;
+
+        animSpeed = Mathf.Clamp(animSpeed, MIN_ANIM_SPEED, MAX_ANIM_SPEED);
         UIManager.Instance.UpdateScore(score);
+        if (failCount >= 3) UIManager.Instance.ShowGameOver();
 
         rotateDirDisplay.AssignNewRandomDir();
     }

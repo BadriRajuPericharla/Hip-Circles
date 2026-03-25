@@ -9678,6 +9678,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateDirDisplay: {fileID: 1252205830}
+  scoreStep: 15
+  animSpeedStep: 1
+  failCount: 0
 --- !u!1 &1185126144
 GameObject:
   m_ObjectHideFlags: 0
