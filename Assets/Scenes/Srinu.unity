@@ -1331,6 +1331,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 71242649}
   m_CullTransparentMesh: 1
+--- !u!1 &73305783
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73305785}
+  - component: {fileID: 73305784}
+  m_Layer: 0
+  m_Name: SessionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &73305784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73305783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5cb06b0d3ea8e0459e30b6baf50e86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beatManager: {fileID: 534387291}
+--- !u!4 &73305785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73305783}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 384.34583, y: 201.93953, z: -1.7133484}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &73677137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,15 +5149,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   compltetionTime: {fileID: 1398376770}
-  leftActions: {fileID: 0}
-  rightActions: {fileID: 0}
-  calories: {fileID: 0}
-  score: {fileID: 0}
-  DummyData1: {fileID: 0}
-  DummyData2: {fileID: 0}
-  DummyData3: {fileID: 0}
-  DummyData4: {fileID: 0}
-  DummyData5: {fileID: 0}
+  calories: {fileID: 392207959}
+  CWReps: {fileID: 0}
+  CCWReps: {fileID: 0}
+  totalRepsCompleted: {fileID: 0}
+  finalScore: {fileID: 1000873656}
+  accuracy: {fileID: 0}
+  maxBPMReached: {fileID: 0}
+  totalWrongHits: {fileID: 0}
+  longestStreak: {fileID: 0}
 --- !u!1 &491966583
 GameObject:
   m_ObjectHideFlags: 0
@@ -6068,6 +6113,11 @@ MonoBehaviour:
   beginnerBtn: {fileID: 819466170}
   moderateBtn: {fileID: 15232815}
   expertBtn: {fileID: 689012319}
+  pauseBtn: {fileID: 0}
+  resumeBtn: {fileID: 0}
+  pauseMenuExitBtn: {fileID: 0}
+  pauseMenuRestartBtn: {fileID: 0}
+  settingsBtn: {fileID: 0}
   leaderboardNxtBtn: {fileID: 464524361}
   analyticsNxtBtn: {fileID: 73677139}
   graphNxtBtn: {fileID: 1642164}
@@ -6077,6 +6127,8 @@ MonoBehaviour:
   levelCompleteRestartBtn: {fileID: 2058147620}
   audioManager: {fileID: 1662378330}
   scoreText: {fileID: 501219096}
+  beatManager: {fileID: 0}
+  playerControl: {fileID: 0}
 --- !u!114 &595918852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9249,7 +9301,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1036516236
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13930,15 +13982,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1662378331}
   sfxSource: {fileID: 1662378333}
-  bgMusic: {fileID: 8300000, guid: 924ee88f345321b40871a86b446225e4, type: 3}
+  bgMusic: {fileID: 8300000, guid: 8cbd85a5ed7b85c41a9e5119e2f3ac38, type: 3}
   btnClickSound: {fileID: 8300000, guid: 5f843d26200623f448e470b4009d39f8, type: 3}
   beatSounds:
-  - {fileID: 8300000, guid: a7edf9c8941743545a0df0c39872d8c7, type: 3}
-  - {fileID: 8300000, guid: 117f8aa574c21ff47b2d31f2bea97e69, type: 3}
-  - {fileID: 8300000, guid: 7bfab5f0a2ca135468e2ee52bd76cb04, type: 3}
-  - {fileID: 8300000, guid: a7edf9c8941743545a0df0c39872d8c7, type: 3}
-  - {fileID: 8300000, guid: 117f8aa574c21ff47b2d31f2bea97e69, type: 3}
-  - {fileID: 8300000, guid: 7bfab5f0a2ca135468e2ee52bd76cb04, type: 3}
+  - {fileID: 8300000, guid: f72cac200ba9a514e8539a031fa53bfd, type: 3}
+  - {fileID: 8300000, guid: 165af793d0078374dbd95b1b52a87967, type: 3}
+  - {fileID: 8300000, guid: 67f9aa79a959218469f8703999d3792a, type: 3}
+  - {fileID: 8300000, guid: 19d468d70a861fe42a4fdcdf8f922074, type: 3}
+  - {fileID: 8300000, guid: 133e45728cd882045a0f841255239fe0, type: 3}
   failSound: {fileID: 8300000, guid: ce22214ed21513446ae29d45f1ef7468, type: 3}
 --- !u!82 &1662378331
 AudioSource:
@@ -18356,3 +18407,4 @@ SceneRoots:
   - {fileID: 1662378332}
   - {fileID: 1357766921}
   - {fileID: 534387292}
+  - {fileID: 73305785}
