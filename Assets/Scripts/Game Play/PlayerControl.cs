@@ -5,6 +5,8 @@ public class PlayerControl : MonoBehaviour
     private Animator playerAnim;
     [SerializeField] private RotateDirDisplay rotateDirDisplay;
     [SerializeField] private BeatManager beatManager;
+    [SerializeField] private ComboText comboText;
+    [SerializeField]private Lifes lifesScript;
     private float animSpeed = 1f;
     private const float MAX_ANIM_SPEED = 5f;
     private const float MIN_ANIM_SPEED = 0f;
@@ -74,6 +76,7 @@ public class PlayerControl : MonoBehaviour
         if (isCorrectDir)
         {
             animSpeed += animSpeedStep;
+            comboText.increaseCount();
             score += scoreStep;
             beatManager.IncreaseBPM();
             beatManager.UpdatePitch();
@@ -83,6 +86,8 @@ public class PlayerControl : MonoBehaviour
         {
             score -= scoreStep;
             if(score < 0) score = 0;
+            lifesScript.lifes();
+            comboText.resetCount();
             animSpeed -= animSpeedStep;
             failCount += 1;
             beatManager.DecreaseBPM();
